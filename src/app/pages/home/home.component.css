@@ -1,0 +1,33 @@
+#home-page{
+    background-image: url('/assets/imagemHome.png');
+    background-size: 100% 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+#home-page-button{
+    margin-top: 600px;
+}
+
+.btn-adventure{
+    background-color:#E73632;
+    color: white;
+    padding: 10px 30px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    height: 100vh;
+}
