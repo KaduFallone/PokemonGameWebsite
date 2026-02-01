@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center align-items-center min-vh-100"  id="login-page">
+    <mat-card class="form-card shadow">
+        <mat-card-content>
+            <form class="login-form">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput class="write-color" placeholder="seu@email.com">
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline" class="full-width ">
+                    <mat-label>Senha</mat-label>
+                    <input matInput class="write-color" placeholder="Suas Senha" type="password">
+                </mat-form-field>
+               
+                <button id="enter-botton" mat-raised-button class="full-width">
+                    Entrar
+                </button>
+            </form>
+        </mat-card-content>
+
+        <mat-card-footer class="text-center p-3">
+            <button class="footer-botton" mat-raised-button routerLink="/registro">Ainda não sou treinador</button>
+            <button class="footer-botton" mat-raised-button routerLink="/recuperarSenha">Esqueci minha senha </button>
+        </mat-card-footer>
+    </mat-card>
+</div>

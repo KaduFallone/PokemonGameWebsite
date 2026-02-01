@@ -1,0 +1,45 @@
+#login-page{
+    background-image: url('/assets/loginImageBackground.png');
+    background-size: 100% 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.form-card{
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    background-color: #FCEC06;
+
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+}
+
+
+.full-width{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.footer-botton{
+    background-color: #2D3184;
+    margin-left: 2px;
+}
+
+#enter-botton{
+    background-color:#EB212E !important ;
+    color: black !important;
+    font-weight: bold !important;
+    margin-top: 10px !important;
+}
+
