@@ -1,5 +1,6 @@
+import { LoginComponent } from './pages/login/login.component';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,6 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'PokellenttWebsite';
+
+
 }

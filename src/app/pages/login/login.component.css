@@ -11,6 +11,7 @@
 }
 
 .form-card{
+    margin-top: 120px;
     width: 100%;
     max-width: 400px;
     border-radius: 12px;
@@ -43,3 +44,7 @@
     margin-top: 10px !important;
 }
 
+.footer-botton-login{
+    margin-top: 3px;
+    background-color: #2D3184;
+}

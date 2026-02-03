@@ -1,26 +1,68 @@
 <div class="d-flex justify-content-center align-items-center min-vh-100"  id="login-page">
     <mat-card class="form-card shadow">
         <mat-card-content>
-            <form class="login-form">
+            <mat-card-title >{{getStateText()}}</mat-card-title>
+            <form *ngIf="isLoginState()" class="login-form">
                 <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Email</mat-label>
-                    <input matInput class="write-color" placeholder="seu@email.com">
+                    <input #loginEmail matInput placeholder="seu@email.com">
                 </mat-form-field>
                 
                 <mat-form-field appearance="outline" class="full-width ">
                     <mat-label>Senha</mat-label>
-                    <input matInput class="write-color" placeholder="Suas Senha" type="password">
+                    <input #loginPassword matInput placeholder="Suas Senha" type="password">
                 </mat-form-field>
-               
-                <button id="enter-botton" mat-raised-button class="full-width">
-                    Entrar
-                </button>
+                <button id="enter-botton" mat-raised-button class="full-width" 
+                    (click)="onLogin(
+                        loginEmail,
+                        loginPassword
+                    )"
+                >Entrar</button>
+            </form>
+
+            <form *ngIf="isRegisterState()">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Nome de usuário</mat-label>
+                    <input #registerName matInput placeholder="Seu nome">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input #registerEmail matInput placeholder="seu@email">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Senha</mat-label>
+                    <input #registerPassword matInput placeholder="sua senha" type="password">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Confirmar senha</mat-label>
+                    <input #registerConfirmPassword matInput placeholder="sua senha" type="password">
+                </mat-form-field>
+                <button id="enter-botton" mat-raised-button class="full-width" 
+                    (click)="onRegister(
+                        registerName,
+                        registerEmail,
+                        registerPassword,
+                        registerConfirmPassword
+                    )"
+                >Torne-se um treinador</button>
+            </form>
+
+            <form *ngIf="isForgotPasswordState()">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input #resetEmail matInput placeholder="seu@email">
+                </mat-form-field>
+                <button id="enter-botton" mat-raised-button class="full-width" (click)="onResetClick(resetEmail)">Redefinir senha</button>
             </form>
         </mat-card-content>
 
         <mat-card-footer class="text-center p-3">
-            <button class="footer-botton" mat-raised-button routerLink="/registro">Ainda não sou treinador</button>
-            <button class="footer-botton" mat-raised-button routerLink="/recuperarSenha">Esqueci minha senha </button>
+            <button *ngIf="!isLoginState()" class="footer-botton-login" mat-raised-button (click)="onLoginClick()" >Login</button>
+            <button *ngIf="!isRegisterState()" class="footer-botton" mat-raised-button (click)="onCreateAccountClick()">Ainda não sou treinador</button>
+            <button *ngIf="!isForgotPasswordState()" class="footer-botton" mat-raised-button (click)="onForgotPasswordClick()">Esqueci minha senha </button>
         </mat-card-footer>
     </mat-card>
 </div>
