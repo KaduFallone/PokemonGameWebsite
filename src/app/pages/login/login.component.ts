@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,10 @@ export class LoginComponent implements OnInit {
 
   auth = new FirebaseTSAuth
 
-  constructor(private matSnackBar: MatSnackBar) { 
+  constructor(
+    private matSnackBar: MatSnackBar,
+    private router: Router
+  ) { 
     this.auth = new FirebaseTSAuth();
     this.firestore = new FirebaseTSFirestore();
   }
@@ -92,13 +96,25 @@ export class LoginComponent implements OnInit {
           email: email,
           password: senha,
           onComplete: (uc) =>{
-            alert(this.matSnackBar.open('Login feito com sucesso!!', 'OKAY', {duration: 4000}))
+            if(uc.user?.emailVerified){
+              this.matSnackBar.open('Login feito com sucesso!!', 'OKAY', {duration: 4000});
+              this.router.navigate(['/home-page']);
+            }
+            else{
+              this.auth.signOut();
+              this.matSnackBar.open('Faça a verificação de conta', 'OKAY', {duration: 4000});
+              this.router.navigate(['/email-verification'])
+              this.auth.sendVerificaitonEmail();
+            }
           },
           onFail: (err) =>{
-            alert(this.matSnackBar.open('Falha no login', 'OKAY' + err, {duration: 4000}))
+            this.matSnackBar.open('Falha no login', 'OKAY' + err, {duration: 4000});
           }
         }
       );
+    }
+    else{
+      this.matSnackBar.open('Preencha todos os campos', 'OKAY')
     }
   }
 
@@ -115,11 +131,11 @@ export class LoginComponent implements OnInit {
     let confirmarSenha = registerConfirmPassword.value;
 
     if(!this.isNotEmpty(email) || !this.isNotEmpty(senha) || !this.isNotEmpty(confirmarSenha)){
-      this.matSnackBar.open('preencha todos os campos', 'OKAY', {duration: 4000})
+      this.matSnackBar.open('preencha todos os campos', 'OKAY', {duration: 4000});
     }
 
     else if(!this.isMatch(senha, confirmarSenha)){
-      this.matSnackBar.open('As senhas não conferem', 'OKAY', {duration: 4000})
+      this.matSnackBar.open('As senhas não conferem', 'OKAY', {duration: 4000});
     }
 
      else if(
@@ -147,13 +163,14 @@ export class LoginComponent implements OnInit {
               }
             );
 
-            this.matSnackBar.open('Conta criada com sucesso! Retornando para o LOGIN!', 'OKAY', {duration: 4000})
+            this.matSnackBar.open('Conta criada com sucesso! Faça a verificação da conta', 'OKAY', {duration: 4000})
 
             registerEmail.value = "";
             registerPassword.value = "";
             registerConfirmPassword.value = "";
 
-            this.onLoginClick();
+            this.router.navigate(['/email-verification']);
+            this.auth.sendVerificaitonEmail();
             
           },
           onFail: (err) => {
@@ -172,7 +189,7 @@ export class LoginComponent implements OnInit {
         {
           email:email,
           onComplete: (err) => {
-            alert(this.matSnackBar.open(`Email enviado para:${email}`))
+            this.matSnackBar.open(`Email enviado para: ${email}`, 'okay', {duration: 4000})
           }
         }
       );
@@ -184,7 +201,8 @@ export class LoginComponent implements OnInit {
 export enum AuthenticatorState{
   LOGIN,
   REGISTER,
-  FORGOT_PASSWORD
+  FORGOT_PASSWORD,
+  EMAIL_VERIFICATION
 }
 
 

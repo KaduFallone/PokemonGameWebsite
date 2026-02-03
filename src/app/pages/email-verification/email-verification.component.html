@@ -1,0 +1,20 @@
+<div class="d-flex align-items-center justify-content-center min-vh-100" id="verification-page">
+    <mat-card class="text-center p-4" id="verification-page-card">
+        <mat-card-header class="justify-content-center">
+            <mat-card-title>Verifique sua conta</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="mt-4" >
+            <mat-card-header class="justify-content-center mt-3 " >email: {{getEmail()}}</mat-card-header>
+            <p class="text-white mt-3">Enviamos um link de confirmação em seu e-mail</p>
+            <p class="text-white ">Caso o e-mail não tenha chegado, clique em:</p>
+            <button class="verification-page-button" mat-button (click)="onResendClick()">Reenviar email</button>
+        </mat-card-content>
+
+        <mat-card-content>
+            <p class="text-white mt-3">Após verificar sua conta:</p>
+            <button mat-button class="verification-page-button" routerLink="/login"> Voltar para o login </button>
+        </mat-card-content>
+
+    </mat-card>
+</div>

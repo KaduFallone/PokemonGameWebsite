@@ -1,0 +1,20 @@
+#verification-page{
+    background-image: url('/assets/email-verificationBackground.png');
+    background-size: 100% 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+#verification-page-card{
+    background-color: #FCEC06 !important;
+}
+
+.verification-page-button{
+    background-color: #EB212E;
+    box-shadow: 0px 4px 15px rgb(18, 18, 18)
+}

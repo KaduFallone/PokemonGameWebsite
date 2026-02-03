@@ -20,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 import { LoginComponent } from './pages/login/login.component';
+import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { LoginComponent } from './pages/login/login.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
+    EmailVerificationComponent,
   ],
   imports: [
     BrowserModule,
