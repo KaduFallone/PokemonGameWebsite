@@ -98,7 +98,7 @@ export class LoginComponent implements OnInit {
           onComplete: (uc) =>{
             if(uc.user?.emailVerified){
               this.matSnackBar.open('Login feito com sucesso!!', 'OKAY', {duration: 4000});
-              this.router.navigate(['/home-page']);
+              this.router.navigate(['/initial-page']);
             }
             else{
               this.auth.signOut();

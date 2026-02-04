@@ -1,0 +1,34 @@
+#initial-page-img{
+    background-image: url('/assets/initialPageBackground.png');
+    background-size: 100% 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+#initial-page-content{
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+    background-color: transparent !important;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    opacity: 0,7 !important;
+}
+
+#welcome-card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(252, 236, 6) !important;
+    opacity: 0.7 !important;
+   
+}
+
+#start-button{
+    background-color: #EB212E !important;
+}
