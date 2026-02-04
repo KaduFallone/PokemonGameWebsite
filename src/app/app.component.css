@@ -1,11 +1,15 @@
 #nav-bar{
     background-color: #4C2F83;
+    box-shadow: 0px 4px 15px rgb(18, 18, 18);
+    border-radius: 2px;
 }
 
 .button{
     background-color: #FCEC06;
+    box-shadow: 0px 4px 15px rgb(18, 18, 18)
 }
 
 #logoutButton{
     background-color: #EB212E;
+    box-shadow: 0px 4px 15px rgb(18, 18, 18)
 }

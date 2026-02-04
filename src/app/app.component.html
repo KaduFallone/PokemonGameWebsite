@@ -1,7 +1,7 @@
 <mat-toolbar id="nav-bar" *ngIf="showNavbar">
   <div class="d-flex w-100 justify-content-end aling-item-center gap-2">  
     <button *ngIf="isAdmin" class="button" mat-raised-button>Usuarios</button>
-    <button *ngIf="isAdmin" class="button" mat-raised-button>Aidicionar pokemons</button>
+    <button *ngIf="isAdmin" class="button" mat-raised-button routerLink="/add-pokemon">Aidicionar pokemons</button>
     <button class="button" mat-raised-button>Capturar pokemons</button>
     <button class="button" mat-raised-button>Meus pokemons</button>
     <button class="button" mat-raised-button>Pokedex</button>
