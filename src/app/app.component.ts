@@ -1,6 +1,6 @@
-import { LoginComponent } from './pages/login/login.component';
 import { Component } from '@angular/core';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +10,15 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 export class AppComponent {
   title = 'PokellenttWebsite';
 
+  showNavbar: boolean = true;
 
+  constructor(private router: Router) {
+    
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: any) => {
+      const hideRoutes = ['/login', '/home', '/'];
+      this.showNavbar = !hideRoutes.includes(event.urlAfterRedirects);
+    });
+  }
 }

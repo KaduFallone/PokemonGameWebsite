@@ -18,9 +18,11 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-
 import { LoginComponent } from './pages/login/login.component';
 import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
+import { InitialPageComponent } from './pages/initial-page/initial-page.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon'
 
 
 @NgModule({
@@ -29,6 +31,7 @@ import { EmailVerificationComponent } from './pages/email-verification/email-ver
     HomeComponent,
     LoginComponent,
     EmailVerificationComponent,
+    InitialPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,9 @@ import { EmailVerificationComponent } from './pages/email-verification/email-ver
     MatFormFieldModule,
     FormsModule, 
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   
 

@@ -1,0 +1,26 @@
+#nav-bar{
+    background-color: #4C2F83;
+}
+
+.button{
+    background-color: #FCEC06;
+}
+
+#logoutButton{
+    background-color: #EB212E;
+}
+
+#nav-bar-logo{
+    background-color: transparent !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+}
+
+.nav-logo-img{
+    max-height: 80%;
+    width: auto;
+    object-fit: contain;
+    
+}

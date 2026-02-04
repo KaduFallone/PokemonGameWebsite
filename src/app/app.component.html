@@ -1,3 +1,13 @@
-<main>
-  <router-outlet></router-outlet>
-</main>
+<mat-toolbar id="nav-bar" *ngIf="showNavbar">
+  <div class="d-flex w-100 justify-content-end aling-item-center gap-2">  
+    <button class="button" mat-raised-button>Usuarios</button>
+    <button class="button" mat-raised-button>Aidicionar pokemons</button>
+    <button class="button" mat-raised-button>Pokedex</button>
+    <button class="button" mat-raised-button>Capturar pokemons</button>
+    <button class="button" mat-raised-button>Meus pokemons</button>
+    <button id="logoutButton" mat-raised-button>Logout</button>
+  </div>
+</mat-toolbar>
+
+
+<router-outlet></router-outlet>
