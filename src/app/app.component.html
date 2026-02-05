@@ -1,5 +1,6 @@
 <mat-toolbar id="nav-bar" *ngIf="showNavbar">
   <div class="d-flex w-100 justify-content-end aling-item-center gap-2">  
+    <button class="button" mat-raised-button routerLink="/initial-page">Home</button>
     <button *ngIf="isAdmin" class="button" mat-raised-button>Usuarios</button>
     <button *ngIf="isAdmin" class="button" mat-raised-button routerLink="/add-pokemon">Aidicionar pokemons</button>
     <button class="button" mat-raised-button>Capturar pokemons</button>
