@@ -1,6 +1,7 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+import { Route, Router } from '@angular/router';
 
 
 @Component({
@@ -12,8 +13,20 @@ export class EmailVerificationComponent implements OnInit {
 
   auth: FirebaseTSAuth;
 
-  constructor(private matSnackBar: MatSnackBar) {
+  constructor(
+    private matSnackBar: MatSnackBar,
+    private router: Router
+  ) {
     this.auth = new FirebaseTSAuth();
+
+    this.auth.getAuth().onAuthStateChanged( user => {
+      if(user){
+        this.getEmail();
+      }
+      else{
+        this.router.navigate(['/login']);
+      }
+    })
    }
 
   ngOnInit(): void {

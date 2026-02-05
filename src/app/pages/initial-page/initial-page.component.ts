@@ -16,16 +16,38 @@ export class InitialPageComponent implements OnInit {
   isLogedin: boolean = false;
 
   userRole: string = "";
+  userName: string = "";
 
   constructor(private router: Router) {
     this.auth = new FirebaseTSAuth();
     this.firestore = new FirebaseTSFirestore(); 
 
+    this.auth.getAuth().onAuthStateChanged(user => {
+      if(user) {
+        this.getUsername(user.uid);
+      }
+      else{
+        this.router.navigate(['/login']);
+      }
+    })
   
   }
   ngOnInit(): void {
   }
 
-  
-
+   getUsername(uid:string){
+    this.firestore.listenToDocument(
+      {
+        name: "GetUserData",
+        path: ["Users", uid],
+        onUpdate: (result) => {
+          const data = result.data();
+          if(data) {
+            this.userRole = data['role'];
+            this.userName = data!['publicName'];
+          }
+        }
+      }
+    )
+  }
 }

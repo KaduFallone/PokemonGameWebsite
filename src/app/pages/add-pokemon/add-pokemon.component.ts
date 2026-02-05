@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseApiComponent } from 'src/app/tools/firebase-api/firebase-api.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-pokemon',
@@ -8,14 +10,27 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./add-pokemon.component.css']
 })
 export class AddPokemonComponent implements OnInit {
-  
+  auth = new FirebaseTSAuth
 
   path = "Pokemons";
 
   constructor(
+    private router: Router,
     private matSnackbar: MatSnackBar,
     private api: FirebaseApiComponent
-  ){}
+  ){
+    this.auth = new FirebaseTSAuth();
+
+    this.auth.getAuth().onAuthStateChanged(user =>{
+      if(user){
+        this.ngOnInit();
+      }
+      else{
+        this.router.navigate(['/login']);
+      }
+    })
+    
+  }
 
   ngOnInit(): void {
   }

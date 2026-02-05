@@ -19,7 +19,7 @@ export class AppComponent {
 
   isAdmin: boolean = false;
   
-  userRole =''
+  userRole ='';
 
   showNavbar: boolean = true;
 
