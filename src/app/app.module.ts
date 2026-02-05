@@ -23,7 +23,8 @@ import { EmailVerificationComponent } from './pages/email-verification/email-ver
 import { InitialPageComponent } from './pages/initial-page/initial-page.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component'
+import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component';
+import { FirebaseApiComponent } from './tools/firebase-api/firebase-api.component'
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component'
     ReactiveFormsModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
   ],
   
 
