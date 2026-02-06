@@ -1,0 +1,62 @@
+#capture-page-backgrou{
+    background-image: url('/assets/capturePageBackgound.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#capture-page-content{
+    height: 400px !important;
+    width: 300px !important;
+    background-image: url('/assets/captureCardBackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgb(18, 18, 18) !important;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#capture-box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+#card-footer{
+    padding: 16px;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#capture-box-content{
+    background-color: rgba(255, 255, 255, 0.7);
+    width:250px;
+    height: 285px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgb(18, 18, 18) !important;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#capture-button{
+    background-color: #EB212E !important;
+    font-weight: bold;
+}
