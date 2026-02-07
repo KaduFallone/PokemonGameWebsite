@@ -38,7 +38,7 @@ export class EmailVerificationComponent implements OnInit {
   }
 
   onResendClick(){
-    this.auth.sendVerificaitonEmail();
+    this.auth.sendVerificationEmail();
     this.matSnackBar.open('Email reenviado com sucesso', 'OKAY')
   }
 }

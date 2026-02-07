@@ -1,5 +1,5 @@
 #adiciona-pokemon-page{
-    background-image: url('/assets/addPokemonPage.png');
+    background-image: url('src/assets/addPokemonPage.png');
     background-size: 100% 100%;
     background-position: top center;
     background-repeat: no-repeat;

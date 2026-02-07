@@ -104,7 +104,7 @@ export class LoginComponent implements OnInit {
               this.auth.signOut();
               this.matSnackBar.open('Faça a verificação de conta', 'OKAY', {duration: 4000});
               this.router.navigate(['/email-verification'])
-              this.auth.sendVerificaitonEmail();
+              this.auth.sendVerificationEmail();
             }
           },
           onFail: (err) =>{
@@ -170,7 +170,7 @@ export class LoginComponent implements OnInit {
             registerConfirmPassword.value = "";
 
             this.router.navigate(['/email-verification']);
-            this.auth.sendVerificaitonEmail();
+            this.auth.sendVerificationEmail();
             
           },
           onFail: (err) => {

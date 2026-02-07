@@ -1,5 +1,5 @@
 #home-page{
-    background-image: url('/assets/imagemHome.png');
+    background-image: url('src/assets/imagemHome.png');
     background-size: 100% 100%;
     background-position: top center;
     background-repeat: no-repeat;

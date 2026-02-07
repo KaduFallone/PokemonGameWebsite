@@ -1,5 +1,5 @@
 #login-page{
-    background-image: url('/assets/loginImageBackground.png');
+    background-image: url('src/assets/loginImageBackground.png');
     background-size: 100% 100%;
     background-position: top center;
     background-repeat: no-repeat;
