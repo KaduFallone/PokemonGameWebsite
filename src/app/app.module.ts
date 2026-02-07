@@ -24,9 +24,7 @@ import { InitialPageComponent } from './pages/initial-page/initial-page.componen
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component';
-import { FirebaseApiComponent } from './tools/firebase-api/firebase-api.component';
-import { CapturePokemonComponent } from './pages/capture-pokemon/capture-pokemon.component'
-
+import { FirebaseApiComponent } from './tools/firebase-api/firebase-api.component'
 
 
 @NgModule({
@@ -37,7 +35,6 @@ import { CapturePokemonComponent } from './pages/capture-pokemon/capture-pokemon
     EmailVerificationComponent,
     InitialPageComponent,
     AddPokemonComponent,
-    CapturePokemonComponent,
   ],
   imports: [
     BrowserModule,

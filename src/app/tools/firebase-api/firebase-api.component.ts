@@ -49,24 +49,12 @@ export class FirebaseApiComponent {
   
   }
 
-  get(
-    route: string,
-    onSucess: (document: any[]) => void
-  ){
-    this.firestore.getCollection(
-      {
-        path: [route],
-        where:[],
-        onComplete: (result) => {
-            onSucess(result.docs);
-        },
-        onFail: (err) => {
-          console.log("GET function falhou");
-          console.log(err);
-        }
-      }
-    );
-  }
+  //get(
+  //  route: string,
+  //  pokemonId: HTMLInputElement
+  //){
+
+  //}
 
   //delete(route: string){
 
