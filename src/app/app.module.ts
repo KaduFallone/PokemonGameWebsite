@@ -25,7 +25,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component';
 import { FirebaseApiComponent } from './tools/firebase-api/firebase-api.component';
-import { CapturePokemonComponent } from './pages/capture-pokemon/capture-pokemon.component'
+import { CapturePokemonComponent } from './pages/capture-pokemon/capture-pokemon.component';
+import { MyPokemonsComponent } from './pages/my-pokemons/my-pokemons.component'
 
 
 
@@ -38,6 +39,7 @@ import { CapturePokemonComponent } from './pages/capture-pokemon/capture-pokemon
     InitialPageComponent,
     AddPokemonComponent,
     CapturePokemonComponent,
+    MyPokemonsComponent,
   ],
   imports: [
     BrowserModule,

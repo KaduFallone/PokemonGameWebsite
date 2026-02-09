@@ -1,0 +1,29 @@
+<div id="my-pokemon-page" class=" justify-content-center align-items-center">
+    <div *ngIf="trainerPokemons.length === 0" class="text-center text-white">
+        <p>Você ainda não capturou pokemons</p>
+    </div>
+    <div class="pokemon-grid" *ngIf="trainerPokemons.length > 0">
+        <mat-card *ngFor="let pokemon of trainerPokemons" class="pokemon-card" >
+        <mat-card-header>
+            <mat-card-title>{{pokemon?.name}}</mat-card-title>
+        </mat-card-header>
+
+        <div class="img-container">
+            <img [src]="pokemon.imgUrl" [alt]="pokemon.imgUrl" id="pokemons-img">    
+        </div>
+        <mat-card-content>
+            <div class="power-box">
+                <span><strong>Power:</strong>{{pokemon?.power}}</span>
+            </div>
+        </mat-card-content>
+
+        <mat-card-footer id="card-action">
+            <button id="feedom-button" mat-raised-button (click)="onReleasePokemonClick()">LIBERTAR</button>
+
+            <button id="stronger-button" mat-raised-button (click)="onGetStrongrClick()">Fortalecer pokemon</button>
+        </mat-card-footer>
+
+    </mat-card>
+    </div>
+    
+</div>

@@ -4,7 +4,7 @@
     <button *ngIf="isAdmin" class="button" mat-raised-button>Usuarios</button>
     <button *ngIf="isAdmin" class="button" mat-raised-button routerLink="/add-pokemon">Aidicionar pokemons</button>
     <button class="button" mat-raised-button routerLink="capture-page">Capturar pokemons</button>
-    <button class="button" mat-raised-button>Meus pokemons</button>
+    <button class="button" mat-raised-button routerLink="/my-pokemons">Meus pokemons</button>
     <button class="button" mat-raised-button>Pokedex</button>
     <button id="logoutButton" (click)="onLogoutClick()" mat-raised-button>Logout</button>
   </div>
