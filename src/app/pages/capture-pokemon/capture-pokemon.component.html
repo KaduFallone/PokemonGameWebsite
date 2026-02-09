@@ -2,7 +2,18 @@
     <mat-card id="capture-page-content">
         <mat-card-content id="capture-box">
             <div id="capture-box-content">
+                <div *ngIf="isCapturing" class="capturing-animation">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg"
+                        class="shaking-pokeball"
+                        alt="capturando...">
+                    <p call="blink-text">Capturando</p>
+                </div>
 
+                <div *ngIf="!isCapturing && sortedePokemon" class="pokemon-display">
+                    <img [src]="sortedePokemon.imgUrl" class="pokemon-img">
+                    <h3>{{sortedePokemon.name}}</h3>
+                    <p class="sucess-text">Capturado!</p>
+                </div>
             </div>
             <mat-card-footer id="card-footer" class=" d-flex align-items-center">
                 <button mat-raised-button id="capture-button" (click)="onCaptureClick()">Capturar pokemon </button>

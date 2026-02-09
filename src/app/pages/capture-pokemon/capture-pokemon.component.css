@@ -60,3 +60,79 @@
     background-color: #EB212E !important;
     font-weight: bold;
 }
+
+.capturing-animation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.shaking-pokeball{
+    width: 80px;
+    height: 80px;
+    animation: shake 1.2s infinite ease-in-out;
+}
+
+@keyframes shake{
+    0% { transform: translate(0, 0) rotate(0deg);}
+    20% { transform: translate(-10px, 0) rotate(-20deg);}
+    40% { transform: translate(10px, 0) rotate(20deg);}
+    60% { transform: translate(-10px, 0) rotate(-20deg);}
+    80% { transform: translate(10px, 0) rotate(20deg);}
+    100% { transform: translate(0, 0) rotate(0deg);}
+}
+
+.blink-text{    
+    margin-top: 15px;
+    font-weight: bold;
+    color: #EB212E;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink{
+    0% { opacity: 1;}
+    50% { opacity: 0.5;}
+    100% { opacity: 1;}
+}
+
+.pokemon-img{
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    animation: popIn 0.5s;
+}
+
+@keyframes popIn{
+    from {transform: scale(0); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.pokemon-display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: popIn 0.5s ease-out;
+}
+
+.pokemon-display h1{
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-top: 10px;
+    color: #333;
+}
+
+
+.sucess-text{
+    color: #28a745;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-top: 15px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
