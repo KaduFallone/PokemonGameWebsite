@@ -50,15 +50,19 @@ export class FirebaseApiComponent {
   }
 
   get(
-    route: string,
+    route: string[],
     onSucess: (document: any[]) => void
   ){
     this.firestore.getCollection(
       {
-        path: [route],
+        path: route,
         where:[],
         onComplete: (result) => {
-            onSucess(result.docs);
+          const dataList = result.docs.map(doc => {
+            const data = doc.data();
+            return { docId: doc.id, ...data };
+          });
+          onSucess(dataList);
         },
         onFail: (err) => {
           console.log("GET function falhou");
