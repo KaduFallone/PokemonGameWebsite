@@ -4,6 +4,7 @@ import { FirebaseApiComponent } from '../../tools/firebase-api/firebase-api.comp
 import * as Chance from 'chance';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-capture-pokemon',
@@ -23,10 +24,18 @@ export class CapturePokemonComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
 
   constructor(
+    private router: Router,
     private snackBar: MatSnackBar,
     private api: FirebaseApiComponent
   ) { 
-    
+    this.auth.getAuth().onAuthStateChanged(user => {
+      if(user) {
+        this.ngOnInit();
+      }
+      else{
+        this.router.navigate(['/login']);
+      }
+    })
   }
 
   ngOnInit(): void {
