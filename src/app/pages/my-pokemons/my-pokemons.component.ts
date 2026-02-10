@@ -27,7 +27,7 @@ export class MyPokemonsComponent implements OnInit {
       else{
         this.router.navigate(['/login'])
       }
-    })
+    });
   }
 
   trainerPokemons: any [] = [];

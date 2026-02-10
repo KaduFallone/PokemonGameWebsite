@@ -18,7 +18,9 @@ export class EmailVerificationComponent implements OnInit {
     private router: Router
   ) {
     this.auth = new FirebaseTSAuth();
+   }
 
+  ngOnInit(): void {
     this.auth.getAuth().onAuthStateChanged( user => {
       if(user){
         this.getEmail();
@@ -27,9 +29,6 @@ export class EmailVerificationComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     })
-   }
-
-  ngOnInit(): void {
   }
 
   getEmail(){

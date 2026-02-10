@@ -22,6 +22,8 @@ export class InitialPageComponent implements OnInit {
     this.auth = new FirebaseTSAuth();
     this.firestore = new FirebaseTSFirestore(); 
 
+  }
+  ngOnInit(): void {
     this.auth.getAuth().onAuthStateChanged(user => {
       if(user) {
         this.getUsername(user.uid);
@@ -29,10 +31,7 @@ export class InitialPageComponent implements OnInit {
       else{
         this.router.navigate(['/login']);
       }
-    })
-  
-  }
-  ngOnInit(): void {
+    });
   }
 
    getUsername(uid:string){

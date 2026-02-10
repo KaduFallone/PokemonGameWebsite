@@ -20,7 +20,9 @@ export class AddPokemonComponent implements OnInit {
     private api: FirebaseApiComponent
   ){
     this.auth = new FirebaseTSAuth();
+  }
 
+  ngOnInit(): void {
     this.auth.getAuth().onAuthStateChanged(user =>{
       if(user){
         this.ngOnInit();
@@ -29,10 +31,6 @@ export class AddPokemonComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     })
-    
-  }
-
-  ngOnInit(): void {
   }
 
   isNotEmpty(texto:string){

@@ -27,7 +27,9 @@ export class CapturePokemonComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private api: FirebaseApiComponent
-  ) { 
+  ) { }
+
+  ngOnInit(): void {
     this.auth.getAuth().onAuthStateChanged(user => {
       if(user) {
         this.ngOnInit();
@@ -35,10 +37,8 @@ export class CapturePokemonComponent implements OnInit {
       else{
         this.router.navigate(['/login']);
       }
-    })
-  }
-
-  ngOnInit(): void {
+    });
+    
     this.loadPokemons();
   }
 
