@@ -72,9 +72,37 @@ export class FirebaseApiComponent {
     );
   }
 
-  //delete(route: string){
+  delete(path: string[], onComplete: () => void ){
+    this.firestore.delete({
+      path: path,
+      onComplete:() => {
+        this.snackBar.open("Arquivo deletado do DB...", "OKAY0", {duration: 3000});
 
-  //}
+        onComplete();
+      },
+      onFail: (err) => {
+        console.log("Erro ao deletar dado no DB...");
+        this.snackBar.open("O pokemon se recusa a abandonar sua jornada...", "OKAY", {duration: 3000});
+      }
+    });
+  }
+
+  upDateDb(path: string[], data: any, onComplete: () => void){
+      this.firestore.update(
+        {
+          path: path,
+          data: data,
+          onComplete: () =>{
+            this.snackBar.open("O poder do seu pokemon aumentou", "OKAY", {duration:3000});
+
+            onComplete();
+          },
+          onFail: () =>{
+            this.snackBar.open("Seu pokemons está com preguissa de treinar...", "OKAY", {duration:3000})
+          }
+        }
+      )
+    }
 
 }
 
