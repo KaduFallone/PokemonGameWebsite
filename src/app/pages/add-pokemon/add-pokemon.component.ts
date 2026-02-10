@@ -24,10 +24,7 @@ export class AddPokemonComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.getAuth().onAuthStateChanged(user =>{
-      if(user){
-        this.ngOnInit();
-      }
-      else{
+      if(!user){
         this.router.navigate(['/login']);
       }
     })

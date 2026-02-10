@@ -4,26 +4,27 @@
     </div>
     <div class="pokemon-grid" *ngIf="trainerPokemons.length > 0">
         <mat-card *ngFor="let pokemon of trainerPokemons" class="pokemon-card" >
-        <mat-card-header>
-            <mat-card-title>{{pokemon?.name}}</mat-card-title>
-        </mat-card-header>
+            <mat-card-header>
+                <mat-card-title>{{pokemon?.name}}</mat-card-title>
+            </mat-card-header>
 
-        <div class="img-container">
-            <img [src]="pokemon.imgUrl" [alt]="pokemon.imgUrl" id="pokemons-img">    
-        </div>
-        <mat-card-content>
-            <div class="power-box">
-                <span><strong>Power:</strong>{{pokemon?.power}}</span>
+            <div class="img-container">
+                <img [src]="pokemon.imgUrl" [alt]="pokemon.imgUrl" id="pokemons-img">    
             </div>
-        </mat-card-content>
+            <mat-card-content>
+                <div class="power-box">
+                    <span><strong>Força:</strong>{{pokemon?.power}}</span>
+                    <span><strong>captura</strong>{{pokemon?.captureDate}}</span>
+                </div>
+            </mat-card-content>
 
-        <mat-card-footer id="card-action">
-            <button id="feedom-button" mat-raised-button (click)="onReleasePokemonClick(pokemon)">LIBERTAR</button>
+            <mat-card-footer id="card-action">
+                <button id="feedom-button" mat-raised-button (click)="onReleasePokemonClick(pokemon)">LIBERTAR</button>
 
-            <button id="stronger-button" mat-raised-button (click)="onGetStrongrClick(pokemon)">Fortalecer pokemon</button>
-        </mat-card-footer>
+                <button id="stronger-button" mat-raised-button (click)="onGetStrongrClick(pokemon)">Fortalecer pokemon</button>
+            </mat-card-footer>
 
-    </mat-card>
+        </mat-card>
     </div>
     
 </div>

@@ -60,6 +60,7 @@
     width: 100%;
     box-shadow: 0px 4px 15px rgb(18, 18, 18) !important;
     background-color: #4C2F83;
+    border-radius: 8px;
 }
 
 .pokemon-card{
@@ -68,6 +69,10 @@
     justify-content: space-between;
     border-radius: 12px;
     box-shadow: 0px 4px 15px rgb(18, 18, 18) !important;
+}
+.pokemon-card:hover{
+    transform: scale(1.02);
+    cursor: pointer;
 }
 
 #feedom-button{

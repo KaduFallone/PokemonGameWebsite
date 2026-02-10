@@ -39,7 +39,7 @@ export class MyPokemonsComponent implements OnInit {
 
     if(!userId) return;
 
-    const path = ["Users", userId, "TrainerDex"];
+    const path = ["Users", userId, "TrainerDex"]; //
 
     this.api.get(path, (DBList: any[]) =>{
       this.trainerPokemons = DBList.map(item =>({
@@ -47,6 +47,8 @@ export class MyPokemonsComponent implements OnInit {
         name: item.pokeName || item.name,
         imgUrl: item.imgUrl,
         power: item.power,
+        capture: item.captureDate
+
       }));
       console.log("Pokemons carregados", this.trainerPokemons)
     });
