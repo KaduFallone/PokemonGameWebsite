@@ -7,6 +7,7 @@ import { InitialPageComponent } from './pages/initial-page/initial-page.componen
 import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component';
 import { CapturePokemonComponent } from './pages/capture-pokemon/capture-pokemon.component';
 import { MyPokemonsComponent } from './pages/my-pokemons/my-pokemons.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'initial-page', component: InitialPageComponent},
   {path: 'add-pokemon', component: AddPokemonComponent},
   {path: 'capture-page', component: CapturePokemonComponent},
-  {path: 'my-pokemons', component: MyPokemonsComponent}
+  {path: 'my-pokemons', component: MyPokemonsComponent},
+  {path: 'usuarios', component: UsuariosComponent}
 ];
 
 @NgModule({

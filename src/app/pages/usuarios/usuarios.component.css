@@ -1,0 +1,78 @@
+#users-page{
+    background-image: url('src/assets/usuariosBackground.png');
+    background-size: cover;
+    background-position: right top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+#trainer-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20;
+    padding: 20px;
+    max-width: 1100px;
+    width: 100%;
+    box-shadow: 0px 4px 15px rgb(18, 18, 18) !important;
+    background-color: #4C2F83;
+    border-radius: 8px;
+}
+
+mat-card.trainer-card{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgb(18, 18, 18) !important;
+    background-color: #FCEC06 !important;
+}
+
+.trainer-card:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+@media(max-width: 768px){
+    .trainer-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+::ng-deep .change-button{
+    background-color:#EB212E !important;
+}
+
+#pokemons-list-container{
+
+}
+
+.pokemons-list-title{
+
+}
+
+.trainer-card-styled{
+
+}
+
+#pokemon-card-header{
+
+}
+
+.pokemon-img-container{
+
+}
+
+.pokemon-img{
+
+}
+
+.power-box-styled{
+    
+}

@@ -1,0 +1,50 @@
+<div id="users-page" class=" justify-content-center align-items-center">
+    <div id="trainer-grid">
+        <mat-card class="trainer-card m-4" *ngFor="let trainer of users">
+            <mat-card-header class="justify-content-center">
+                <mat-card-title >Nome:{{trainer?.publicName}}</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <p><strong>ID:</strong>{{trainer?.userId}}</p>
+                <p><strong>Papel:</strong>{{trainer?.role}}</p>
+                <p><strong>Email</strong>{{trainer?.userEmail}}</p>
+                <p><strong>Datade criação:</strong> {{trainer?.createdAt}}</p>
+            </mat-card-content>
+
+            <mat-card-footer class="p-3">
+                <button mat-raised-button class="change-button w-100" (click)="onChangeClick(trainer?.userId)">VER / ALTERAR</button>
+            </mat-card-footer>
+
+
+
+            <div *ngIf="selectedUserId" id="pokemons-list-container">
+                <h2 *ngFor="let trainer of users" class="pokemons-list-title">
+                    pokemons do treinador: {{trainer?.publicName}}
+                </h2>
+
+                <p *ngIf="userPokemonList.length === 0" class="text-white text-center">
+                    O treinador não possui nenhum pokemon
+                </p>
+                <div class="pokemon-grid">
+                    <mat-card *ngFor="let pokemon of userPokemonList" class="trainer-card-styled">
+                        <mat-card-header id="pokemon-card-header" *ngFor="let trainer of users">
+                            <mat-card-title>{{pokemon?.pokeName}}</mat-card-title>
+                            <p><strong>Id:</strong>{{pokemon?.pokeId}}</p>
+                        </mat-card-header>
+        
+                        <div class="pokemon-img-container">
+                            <img [src]="pokemon.imgUrl" [alt]="pokemon.imgUrl" id="pokemon-img">    
+                        </div>
+                        <mat-card-content>
+                            <div class="power-box-styled">
+                                <span><strong>Força:</strong>{{pokemon?.power}}</span>
+                                <span><strong>Captura:</strong>{{pokemon?.captureDate}}</span>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>
