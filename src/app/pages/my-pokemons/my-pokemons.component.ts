@@ -52,12 +52,28 @@ export class MyPokemonsComponent implements OnInit {
     });
   }
 
-  onReleasePokemonClick(){
 
+
+  
+
+  onReleasePokemonClick(pokemon: any){
+    const userId = this.auth.getAuth().currentUser?.uid;
+
+    const path = ["Users",userId,"TrainerDex", pokemon.docId  ]
+    
+    this.api.delete(path, () => {
+      this.getPlayerPokemons();
+    })
   }
 
-  onGetStrongrClick(){
-    
+  onGetStrongrClick(pokemon: any){
+    const userId = this.auth.getAuth().currentUser?.uid;
+    const newPower = pokemon.power + 1 || 0 + 1;
+    const path = ["Users", userId, "TrainerDex", pokemon.docId ];
+
+    this.api.upDateDb(path, {power: newPower}, () =>{
+      this.getPlayerPokemons();
+    })
   }
 
 }
