@@ -21,7 +21,7 @@
                 <button mat-raised-button id="inspect-button" class="w-100" (click)="onInspectClick(user.userId)">
                     INSPECIONAR
                 </button>
-                <button mat-raised-button id="role-button" class="w-100" (click)="onInspectClick(user.userId)">
+                <button mat-raised-button id="role-button" class="w-100" (click)="onRoleClick(user)">
                     ALTERAR FUNÇÃO
                 </button>
             </mat-card-footer>
@@ -32,7 +32,7 @@
         <button mat-raised-button class="close-button-x" (click)="onReturnClick()">
             &times;
         </button>
-        <div *ngIf="userPokemonList.length === 0">
+        <div class="text-white" *ngIf="userPokemonList.length === 0">
             <p >Treinador não possui pokemons</p>
         </div>
         <mat-card class="pokemons-card" *ngFor="let pokemon of userPokemonList">

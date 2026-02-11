@@ -22,6 +22,7 @@ export class UsuariosComponent implements OnInit {
   showPokemons: boolean = false;
   userPokemonList: any[] =[];
   selectedUserId: string | null= null;
+  
 
   ngOnInit(): void {
     this.getUsersInfo();
@@ -95,6 +96,37 @@ export class UsuariosComponent implements OnInit {
     this.showPokemons = false;
   this.selectedUserId = null; 
   this.userPokemonList = [];
+  }
+
+
+  actualUser: any = "";
+
+  onRoleClick(user: any){
+
+     if(user.userId === "LOIYBMt0N9fLjGtvUFE3zG2wg7l2"){
+      this.snackbar.open("NÂO OUSE TROCAR A FUNÇÃO DO ADMIN SUPREMO!!!", "OKAY", {duration:10000})
+      return
+    }
+    
+    const pathRoleUser = ["Users", user.userId];
+    
+      if(user.role === "trainer"){
+        this.api.upDateDb(pathRoleUser, {role: "admin"}, () =>{
+          this.snackbar.open(`O ${user.publicName} agora é admin`, "OKAY", { duration: 3000 })
+
+          this.getUsersInfo();
+        })
+      }
+      if(user.role === "admin"){
+        this.api.upDateDb(pathRoleUser, {role: "trainer"}, () =>{
+          this.snackbar.open(`O ${user.publicName} agora é trainer`, "OKAY", { duration: 3000 })
+
+          this.getUsersInfo();
+        })
+      }
+
+      
+    
   }
 
 }
