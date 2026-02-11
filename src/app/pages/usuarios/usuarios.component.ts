@@ -19,6 +19,7 @@ export class UsuariosComponent implements OnInit {
     private snackbar: MatSnackBar
   ) { }
 
+  showPokemons: boolean = false;
   userPokemonList: any[] =[];
   selectedUserId: string | null= null;
 
@@ -45,10 +46,11 @@ export class UsuariosComponent implements OnInit {
     })
   }
 
-  onChangeClick(userId: string){
-    if(this.selectedUserId == userId){
+  onInspectClick(userId: string){
+    if(this.selectedUserId === userId){
       this.selectedUserId = null;
       this.userPokemonList = [];
+      this.showPokemons = false;
       console.log("Fechando vizualização...");
       return;
     }
@@ -61,11 +63,6 @@ export class UsuariosComponent implements OnInit {
 
     this.api.get(path, (pokemonList) => {
       this.userPokemonList = pokemonList.map (poke => {
-        if(!pokemonList){
-          this.userPokemonList = [];
-          return;
-        }
-        
         return{
           captureDate: poke.captureDate,
           imgUrl: poke.imgUrl,
@@ -74,8 +71,30 @@ export class UsuariosComponent implements OnInit {
           power: poke.power
         }
       });
+      this.showPokemons = true;
       console.log(this.userPokemonList)
     })
+  }
+
+
+  onDeleteClick(pokemon: any){
+    const confirmacao = confirm(`Deseja deleta o ${pokemon.pokeName} deste treinador`);
+
+    const path = ["Users", this.selectedUserId, "TrainerDex", pokemon.pokeId];
+
+    if(confirmacao){
+      this.api.delete(path, () => {
+        this.snackbar.open(`${pokemon.pokeName} deletado com sucesso`, "OKAY", {duration: 3000});
+
+        this.userPokemonList = this.userPokemonList.filter(p => p.pokeId !== pokemon.pokeId)
+      })
+    }
+  }
+
+  onReturnClick(){
+    this.showPokemons = false;
+  this.selectedUserId = null; 
+  this.userPokemonList = [];
   }
 
 }
