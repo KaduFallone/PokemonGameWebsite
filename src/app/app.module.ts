@@ -27,7 +27,8 @@ import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component';
 import { FirebaseApiComponent } from './tools/firebase-api/firebase-api.component';
 import { CapturePokemonComponent } from './pages/capture-pokemon/capture-pokemon.component';
 import { MyPokemonsComponent } from './pages/my-pokemons/my-pokemons.component';
-import { UsuariosComponent } from './pages/usuarios/usuarios.component'
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { PokeDexComponent } from './pages/poke-dex/poke-dex.component'
 
 
 
@@ -42,6 +43,7 @@ import { UsuariosComponent } from './pages/usuarios/usuarios.component'
     CapturePokemonComponent,
     MyPokemonsComponent,
     UsuariosComponent,
+    PokeDexComponent,
   ],
   imports: [
     BrowserModule,

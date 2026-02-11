@@ -8,6 +8,7 @@ import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component';
 import { CapturePokemonComponent } from './pages/capture-pokemon/capture-pokemon.component';
 import { MyPokemonsComponent } from './pages/my-pokemons/my-pokemons.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { PokeDexComponent } from './pages/poke-dex/poke-dex.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'add-pokemon', component: AddPokemonComponent},
   {path: 'capture-page', component: CapturePokemonComponent},
   {path: 'my-pokemons', component: MyPokemonsComponent},
-  {path: 'usuarios', component: UsuariosComponent}
+  {path: 'usuarios', component: UsuariosComponent},
+  {path: 'poke-dex', component: PokeDexComponent}
 ];
 
 @NgModule({

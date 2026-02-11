@@ -3,6 +3,7 @@ import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseApiComponent } from 'src/app/tools/firebase-api/firebase-api.component';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuarios',
@@ -15,6 +16,7 @@ export class UsuariosComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
 
   constructor(
+    private router: Router,
     private api: FirebaseApiComponent,
     private snackbar: MatSnackBar
   ) { }
@@ -25,8 +27,15 @@ export class UsuariosComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.getUsersInfo();
-    
+    const user = this.auth.getAuth().onAuthStateChanged((user) => {
+      if(user){
+      this.getUsersInfo();
+    }
+    else{
+      this.router.navigate(['/login']);
+    }
+    })
+  
   }
 
   users: any[] =[]

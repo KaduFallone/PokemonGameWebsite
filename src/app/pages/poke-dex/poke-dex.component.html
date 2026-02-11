@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="icon" href="assets/iconPokebol.png">
+    <link rel="stylesheet" href="poke-dex.component.css">
+
+    <script defer src="./poke-dex.component.ts"></script>
+
+    <title>Pokedex</title>
+</head>
+<body>
+    
+    <main>
+        <img *ngIf="pokemonsImg" [src]="pokemonsImg" alt="pokemon" id="pokemon-img">
+
+        <h1 class="pokeData">
+            <span class="pokeNumber">{{pokemonsId}}</span> -
+            <span class="pokemon_name">{{pokemonsName}}</span>
+        </h1>
+
+        <form id="form" (submit)="onSearch($event, searchInput.value); searchInput.value = ''">
+            <input 
+                #searchInput
+                type="search" 
+                class="input-search"
+                placeholder="Name or Number"
+                required
+            >
+        </form>
+
+        <div class="buttons">
+            <button class="button btn-prev">Prev &lt;</button>
+            <button class="button btn-next">NEXT &gt;></button>
+        </div>
+        
+        <img src="assets/pokedex.png" alt="pokedex" id="pokedex">
+    </main>
+    
+</body>
+</html>
