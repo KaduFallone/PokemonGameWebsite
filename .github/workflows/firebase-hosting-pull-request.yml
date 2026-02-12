@@ -11,17 +11,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node
+      # 1. Usamos o Node 14 para o Angular 12 não quebrar no Build
+      - name: Setup Node 14 (Build)
         uses: actions/setup-node@v4
         with:
           node-version: 14
 
       - name: Install and Build
-        run: |
-          npm ci && npm run build
+        run: npm ci && npm run build
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      # 2. AGORA A MÁGICA: Mudamos para o Node 20 para o Firebase não reclamar
+      - name: Setup Node 20 (Deploy)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_POKELLENTTWEBSITE }}
+          # Se for o arquivo de Merge, mantenha a linha do channelId: live
+          # Se for o de PR, não precisa dela
+          channelId: live 
           projectId: pokellenttwebsite
