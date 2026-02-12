@@ -24,13 +24,9 @@ export class AddPokemonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getRole();
-    console.log(this.userRole);
 
     this.auth.getAuth().onAuthStateChanged(user =>{
-      if(
-        !user
-      ){
+      if(!user){
         this.router.navigate(['/login']);
       }
     })
@@ -69,16 +65,6 @@ export class AddPokemonComponent implements OnInit {
     }
   }
 
-  userId = this.auth.getAuth().currentUser?.uid as string;
-
-  rolePath = ["User", this.userId, "Role"]
-
-  userRole = "";
   
-
-  getRole(){
-    this.api.get(this.rolePath, (document) => {
-      return this.userRole = document[0].role;
-    })
-  }
+  
 }
