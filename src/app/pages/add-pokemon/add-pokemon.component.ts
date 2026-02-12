@@ -3,7 +3,7 @@ import { FirebaseApiComponent } from 'src/app/tools/firebase-api/firebase-api.co
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { Router } from '@angular/router';
-import { StringifyOptions } from 'querystring';
+
 
 @Component({
   selector: 'app-add-pokemon',
