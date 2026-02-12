@@ -3,6 +3,7 @@ import { FirebaseApiComponent } from 'src/app/tools/firebase-api/firebase-api.co
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { Router } from '@angular/router';
+import { StringifyOptions } from 'querystring';
 
 @Component({
   selector: 'app-add-pokemon',
@@ -23,8 +24,14 @@ export class AddPokemonComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getRole();
+    console.log(this.userRole);
+
     this.auth.getAuth().onAuthStateChanged(user =>{
-      if(!user){
+      if(
+        !user &&
+        this.userRole != "Admin"
+      ){
         this.router.navigate(['/login']);
       }
     })
@@ -61,7 +68,18 @@ export class AddPokemonComponent implements OnInit {
     else{
       this.matSnackbar.open('Preencha todos os campos', 'OKAY', {duration: 3000})
     }
+  }
 
+  userId = this.auth.getAuth().currentUser?.uid as string;
 
+  rolePath = ["User", this.userId, "Role"]
+
+  userRole = "";
+  
+
+  getRole(){
+    this.api.get(this.rolePath, (document) => {
+      return this.userRole = document[0].role;
+    })
   }
 }
