@@ -14,7 +14,7 @@
             <mat-card-content>
                 <p><strong>Role:</strong> {{user.role}}</p>
                 <p><strong>Email:</strong> {{user.userEmail}}</p>
-                <p><strong>Criação:</strong> {{user.createdAt | date:'dd/MM/yyyy'}}</p>
+                <p><strong>Criação:</strong> {{user.createdAt | date:'dd/MM/yy'}}</p>
             </mat-card-content>
 
             <mat-card-footer class="p-3">
@@ -50,7 +50,7 @@
             <mat-card-content>
                 <div class="status-box ">
                     <span><strong>Força:</strong>{{pokemon.power}}<br></span>
-                    <span><strong>captura</strong>{{pokemon.captureDate}}</span>
+                    <span><strong>captura:</strong> {{pokemon.captureDate | date:'dd/MM/yy'}}</span>
                 </div>
             </mat-card-content>
 

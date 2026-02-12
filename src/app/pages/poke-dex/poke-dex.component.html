@@ -32,11 +32,13 @@
             >
         </form>
 
-        <div class="buttons">
-            <button class="button btn-prev">Prev &lt;</button>
-            <button class="button btn-next">NEXT &gt;></button>
+        <div class="buttons" >
+            <button class="button btn-prev" (click)="onPrevClick()">Ant &lt;</button>
+            <button class="button btn-next" (click)="onNextClick()">Prox &gt;</button>
         </div>
-        
+        <div>
+            <p>Nem todo pokemon da pokedex está disponivel para jogar</p>
+        </div>
         <img src="assets/pokedex.png" alt="pokedex" id="pokedex">
     </main>
     

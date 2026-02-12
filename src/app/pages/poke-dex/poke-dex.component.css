@@ -27,7 +27,7 @@ main{
 
 #pokemon-img{
     position: absolute;
-    bottom: 55%;
+    bottom: 50%;
     left: 50%;
     transform: translate(-63%, 20%);
     height: 18%;
@@ -38,7 +38,7 @@ main{
     position: absolute;
     font-weight: 600;
     color: #aaa;
-    top: 54.5%;
+    top: 55%;
     right: 27%;
     font-size: clamp(8px, 15vw, 25px);
 }
