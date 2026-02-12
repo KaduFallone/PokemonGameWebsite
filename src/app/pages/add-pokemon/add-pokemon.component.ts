@@ -29,8 +29,7 @@ export class AddPokemonComponent implements OnInit {
 
     this.auth.getAuth().onAuthStateChanged(user =>{
       if(
-        !user &&
-        this.userRole != "Admin"
+        !user || this.userRole != "Admin"
       ){
         this.router.navigate(['/login']);
       }
