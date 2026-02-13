@@ -87,19 +87,29 @@ export class UsuariosComponent implements OnInit {
   }
 
 
-  onDeleteClick(pokemon: any){
-    const confirmacao = confirm(`Deseja deleta o ${pokemon.pokeName} deste treinador`);
-
-    const path = ["Users", this.selectedUserId, "TrainerDex", pokemon.pokeId];
-
-    if(confirmacao){
-      this.api.delete(path, () => {
-        this.snackbar.open(`${pokemon.pokeName} deletado com sucesso`, "OKAY", {duration: 3000});
-
-        this.userPokemonList = this.userPokemonList.filter(p => p.pokeId !== pokemon.pokeId)
-      })
-    }
+  onDeleteClick(pokemon: any) {
+  // 1. Verificação de segurança: temos um usuário selecionado?
+  if (!this.selectedUserId) {
+    this.snackbar.open("Erro: Nenhum treinador selecionado.", "OK");
+    return;
   }
+
+  const confirmacao = confirm(`Deseja deletar o ${pokemon.pokeName} deste treinador?`);
+
+  // 2. Usamos o docId (ID único do Firebase) em vez do pokeId (ID do pokémon)
+  const path = ["Users", this.selectedUserId, "TrainerDex", pokemon.docId];
+
+  if (confirmacao) {
+    // 3. Verifique se sua api.delete recebe (path, callback) ou ({path, onComplete})
+    // Pelo padrão do seu onRoleClick, parece ser (path, callback)
+    this.api.delete(path, () => {
+      this.snackbar.open(`${pokemon.pokeName} deletado com sucesso`, "OKAY", { duration: 3000 });
+
+      // Filtramos usando o docId para remover da tela instantaneamente
+      this.userPokemonList = this.userPokemonList.filter(p => p.docId !== pokemon.docId);
+    });
+  }
+}
 
   onReturnClick(){
     this.showPokemons = false;
