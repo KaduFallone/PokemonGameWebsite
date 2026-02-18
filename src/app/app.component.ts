@@ -31,7 +31,7 @@ export class AppComponent {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
-      const hideRoutes = ['/login', '/home', '/'];
+      const hideRoutes = ['/login', '/home', '/', '/email-verification'];
       this.showNavbar = !hideRoutes.includes(event.urlAfterRedirects);
     });
 
