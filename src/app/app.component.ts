@@ -45,6 +45,10 @@ export class AppComponent {
       }
     })
   }
+
+  ngOnInit(): void {
+    this.getUserRole(this.auth.getAuth().currentUser?.uid || '');
+  }
   //Pega a role para saber se é admin ou apenas trainer(jogador)
   getUserRole(uid:string){
     this.firestore.listenToDocument(
